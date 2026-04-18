@@ -6,39 +6,66 @@
     <title>job/seeking/web-application</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Nabla&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Protest+Revolution&display=swap');
         body{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             text-align: center;
+            background-image: url(img.png);
+            background-repeat: repeat-y;
+            background-size: cover;
         }
-        h1{
-            font-family: "Protest Revolution", sans-serif;
+        h1{font-family: "Protest Revolution", sans-serif;}
+        h2{
+            font-family: "Nabla", system-ui;
             color: white;
         }
-        #data, h2, input,button{
+        #data,input,button{
             font-family: "Merienda", cursive;
+        }
+        #card2{
+            background-color: rgb(119, 119, 119);
+            position: relative;
+            z-index: 10;
+            overflow: hidden;
+        }
+        .card2x{
+            background-color: rgb(36, 36, 36);
+            width: 60%;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform-origin: top right;
+            transform: skewX(35deg);
+            z-index: 1;
+        }
+        #ERRORS,h2,#data{
+            position: relative;
+            z-index: 200;
         }
     </style>
 </head>
-<body class="bg-sky-800/60">
+<body>
     <nav></nav>
     <main class="transition delay-150 duration-300 ease-in-out">
-        <header><h1 class="m-10 text-5xl font-extrabold">THIS IS A JOB-SEARCHING WEBPAGE APPLICATION</h1></header>
-        <section class="w-250 h-20 mx-auto my-10 bg-sky-800/45 rounded-2xl shadow shadow-lg shadow-black py-auto">
+        <header><h1 class="m-10 text-5xl font-extrabold text-white">THIS IS A JOB-SEARCHING WEBPAGE APPLICATION</h1></header>
+        <section class="w-250 h-20 mx-auto my-10 bg-linear-to-r from-zinc-900 to-zinc-100 rounded-2xl shadow shadow-lg shadow-black py-auto">
             <!-- SEARCH-BAR AND BUTTON -->
             <form action="search" class="">
-                <input type="text" placeholder="search for job vacancies" id="search" class="hover:scale-105 cursor-pointer text-3xl font-bold mt-5 outline-0 w-100 text-white ">
-                <button id="btn" class="text-xl border border-3 border-gray-200 cursor-pointer text-white rounded-xl hover:bg-white hover:text-black hover:scale-120 font-bold px-3 py-1 transition delay-150 duration-300 ease-in-out">search</button>
+                <input type="text" placeholder="search for job vacancies" id="search" class="hover:scale-105 text-3xl font-bold mt-5 outline-0 w-100 text-white ">
+                <button id="btn" class="text-xl border border-3 border-gray-600 cursor-pointer text-white rounded-xl hover:bg-white hover:text-black hover:scale-120 font-bold px-3 py-1 transition delay-150 duration-300 ease-in-out">search</button>
             </form>
         </section>
         <!-- DIVISION TO DISPLAY DATA FROM THE SERVER -->
-        <section class="mx-auto w-250 py-10 bg-sky-800/45 min-h-screen h-auto rounded-2xl shadow shadow-xl shadow-black">
+        <section id="card2" class="mx-auto w-250 py-10 min-h-80 h-auto rounded-2xl shadow shadow-xl shadow-black">
+            <div class="card2x"></div>
             <!-- ELEMENT TO HOLD THE ERRORS -->
             <div id="ERRORS"></div>
             <!-- TOPIC -->
-            <h2 class="text-4xl font-extrabold mb-10">BELOW ARE THE AVAILABLE VACANCIES</h2>
+            <h2 class="text-4xl font-extrabold mb-10 text-white outline-0">BELOW ARE THE AVAILABLE VACANCIES</h2>
             <div id="data"></div>
         </section>
     </main>
